@@ -1,0 +1,21 @@
+﻿@model LV_PresenterAPI.Models.ImagemStatusViewModel
+
+
+@switch (ViewBag.StrTipoRev)
+{
+    case "X":
+        <img width="20" height="20" style="margin:auto" src="@Url.Content(Model.ImagePathX)" alt="Image" />
+        break;
+    case "V":
+        <img width="20" height="20" src="@Url.Content(Model.ImagePathV)" alt="Image" />
+        break;
+    case "ND":
+        <img width="20" height="20" src="@Url.Content(Model.ImagePathND)" alt="Image" />
+        break;
+    case "NA":
+        <img width="20" height="20" src="@Url.Content(Model.ImagePathNA)" alt="Image" />
+        break;
+    case "I":
+        <img width="20" height="20" src="@Url.Content(Model.ImagePathI)" alt="Image" />
+        break;
+}

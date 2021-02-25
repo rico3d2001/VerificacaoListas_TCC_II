@@ -1,0 +1,35 @@
+﻿@model LVModel.TipoLV
+
+@{
+    ViewBag.Title = "DetalhesLV";
+}
+
+<h2>DetalhesLV</h2>
+
+<div>
+    <h4>TipoLV</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Guid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guid)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Listas de Planilhas", "ListaPlanilhas", new { guid = Model.Guid })
+    @*@Html.ActionLink("Back to List", "Index")*@
+</p>

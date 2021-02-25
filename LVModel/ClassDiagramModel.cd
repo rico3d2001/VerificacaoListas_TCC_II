@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LVModel.Documento">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ABBAQAAAAFABAIIAAIBABAgAAAAQFABAAAACEQAAgAE=</HashCode>
+      <FileName>Documento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="NumeroDocSNCLavalin" />
+      <Property Name="Planilha" />
+      <Property Name="Projeto" />
+      <Property Name="OS" />
+      <Property Name="Area" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LVModel.Planilha">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAIAYIgAAAAAAQAYAAAAAgAAABAAAAAAAAACAAEAA=</HashCode>
+      <FileName>Planilha.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListaGrupos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LVModel.NumeroDocSNCLavalin">
+    <Position X="12.5" Y="7" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CwFAAAAIAAAgAAAEAIVAIEAAAAAAAAAAAAAAAAAAICE=</HashCode>
+      <FileName>NumeroDocSNCLavalin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LVModel.Area">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Area.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LVModel.OS">
+    <Position X="12.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>OS.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LVModel.Projeto">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAhAAAAAAAQQAAAQAAgQEAAEAAACAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Projeto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListaAreas" />
+      <Property Name="ListaOSs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LVModel.Grupo">
+    <Position X="3.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIBAAAAAAAAAAAYAAAAAAAQAABABAAAAAAIAAAAE=</HashCode>
+      <FileName>Grupo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListaItens" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LVModel.ArquivoListas">
+    <Position X="19.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAAIBAgAAAEAYAAAAAAAAAAAAABAAAAAAAAAIA=</HashCode>
+      <FileName>ArquivoListas.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Configuracao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LVModel.Configuracao">
+    <Position X="16.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AABAIAAAIAAgAAAAAYAAAAAAAAAAAABAgAAAAAAAAAA=</HashCode>
+      <FileName>Configuracao.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Disciplina" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LVModel.Disciplina">
+    <Position X="19.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIABAAAAgAAAAAQBAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Disciplina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LVModel.ItemRevisao">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAABAAAAAAAgAAAIBAAAAAAAABAAAAAAAAAIAAEAA=</HashCode>
+      <FileName>ItemRevisao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LVModel.Revisao" Collapsed="true">
+    <Position X="22" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQRAAAASAACAICAAAAAAAAAEAAAAABAAAAAAAIAgAAA=</HashCode>
+      <FileName>Revisao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LVModel.EstadoRevisao" Collapsed="true">
+    <Position X="23.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAgAAAAAAQAAAAAEAAABAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>EstadoRevisao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LVModel.Confirmacao" Collapsed="true">
+    <Position X="22" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkBAABAABAEAQAAAAAABAAAAAAAAAAAAJBAwAIAAAAA=</HashCode>
+      <FileName>Confirmacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

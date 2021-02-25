@@ -1,0 +1,143 @@
+﻿@*@model WebAppAWListaVerificacao.Models.PlanilhaViewModel*@
+@using WebAppAWListaVerificacao.Models
+@using LVModel
+@using LV14FluentNHB.Service
+@using LV_DI
+@using AppListaVerificacao.Interface;
+@using Unity;
+
+@{
+    var larguraColunaRev = "width:" + ViewBag.LarguraCalculada + "%;text-align:center";
+
+    var list_ColunaRevisaoViewModel = (List<ColunaRevisaoViewModel>)ViewBag.List_ColunaRevisaoViewModel;
+
+    var imagens = (ImagemStatusViewModel)TempData["ImagemStatusViewModel"];
+
+    List<ListaRegistrosPorColunas> listaRegistrosSemAgrupamento = (List<ListaRegistrosPorColunas>)Session["ListaRevisoes"];
+
+    var contextoDocumentoRevisoes = DIContainer.Instance.AppContainer.Resolve<AppServiceBase<Revisao>>();
+
+    //contextoDocumentoRevisoes.Start();
+}
+
+@*TABELA GERAL*@
+
+<div>
+    @foreach (var grupo in list_ColunaRevisaoViewModel[0].ListaGrupos)
+    {
+        @*TABELA GRUPO*@
+        <table id="tabela_grupo" class="table-bordered" style="width:100%">
+            <tr>
+                <th style="text-align:center;vertical-align:central;width:5%">
+
+                    @Html.DisplayFor(modelItem => grupo.Indice)
+                </th>
+                <th style="text-align:center;vertical-align:central;width:50%;background-color:bisque">
+
+                    @Html.DisplayFor(modelItem => grupo.Nome)
+                </th>
+                <th style="text-align:center;vertical-align:central;width:45%">
+                    <table class="table-bordered" style="width:100%">
+                        <tr>
+                            @foreach (var registro in list_ColunaRevisaoViewModel)
+                            {
+                                <th style="text-align:center;vertical-align:central;width:8%;height:20px">
+
+                                </th>
+                            }
+
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+        </table>
+
+        @*TABELA REVISOES*@
+        <table id="tabela_revisoes" style="width:100%" border="1">
+
+            @foreach (var linha in grupo.ListaLinhas)
+            {
+                <tr>
+                    <th style="text-align:center;vertical-align:central;width:5%">
+
+                        @Html.DisplayFor(modelItem => linha.Item)
+                    </th>
+
+                    <th style="text-align:center;vertical-align:central;width:50%">
+
+                        @Html.DisplayFor(modelItem => linha.Descricao)
+                    </th>
+                    <th style="text-align:center;vertical-align:central;width:45%">
+
+                        <table border="1" style="width:100%">
+                            <tr>
+                                @for (int i = 0; i < list_ColunaRevisaoViewModel.Count; i++)
+                                {
+
+
+                                    <th style=@larguraColunaRev>
+
+
+
+                                        @if (linha.GuidTipo != "null")
+                                        {
+                                            var listaIndiceAtual = listaRegistrosSemAgrupamento.First(x => x.IndiceRevisao == list_ColunaRevisaoViewModel[i].IndiceRevisao);
+                                            var registro = listaIndiceAtual.ListaRegistros.First(x => x.GetGuidTipo() == linha.GuidTipo);
+
+                                            if (registro.Confirmado)
+                                            {
+                                                { Html.RenderAction("_MostraImagensStatus", new { strTipoRevisao = registro.GetLetraStatus(), imagensView = imagens }); }
+                                            }
+                                            else
+                                            {
+                                                string indiceRev = registro.IndiceRevisao;
+
+                                                string guidLinha = Guid.NewGuid().ToString();
+                                                if (linha.GuidRevisao.IsEmpty())
+                                                {
+
+                                                    linha.GuidRevisao = guidLinha;
+
+
+                                                }
+
+
+                                                string guidRev = registro.GuidVerificacao;
+
+
+                                                {
+                                                    Html.RenderAction("_SetStatus",
+                                                      new
+                                                      {
+                                                          idTipo = linha.GuidTipo,
+                                                          status = registro.TipoRevisao.Name,
+                                                          guidLinha = guidLinha,
+                                                          guidRev = registro.GuidVerificacao,
+                                                          indiceRev = registro.IndiceRevisao,
+                                                       app = contextoDocumentoRevisoes
+                                                      });
+                                                }
+                                            }
+
+
+
+                                        }
+
+                                    </th>
+
+                                }
+
+                            </tr>
+
+                        </table>
+                    </th>
+                </tr>
+            }
+
+        </table>
+    }
+
+</div>
+
+
+

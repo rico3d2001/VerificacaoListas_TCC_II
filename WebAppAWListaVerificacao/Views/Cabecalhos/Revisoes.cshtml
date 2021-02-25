@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebAppAWListaVerificacao.Models.ColunaRevisaoViewModel>
+
+@{ 
+    var larguraColunaRev = "width:" + ViewBag.LarguraCalculada + "%;text-align:center";
+
+    var listaIndicesRevisao = (List<string>)ViewBag.ListaIndicesRevisao;
+}
+
+
+@*CABECALHO REVISOES*@
+<table id="cabecalho_revisoes" class="table-bordered" style="width:100%">
+    <tr>
+        <th style="text-align:center;vertical-align:central;width:5%">
+            ITEM
+        </th>
+        <th style="text-align:center;vertical-align:central;width:50%">
+            VERIFICAÇÕES
+        </th>
+        <th style="text-align:center;vertical-align:central;width:45%">
+            <div>REVISÕES</div>
+            <div>
+                <table border="1" style="width:100%">
+                    <tr>
+                        @*@{
+            //Ordenar colunas
+            var listaColunasOrdenada = Model.ListaColunas.OrderBy(x => x.Ordenador);
+        }
+
+        @foreach (var nomeColuna in listaColunasOrdenada)
+        {
+            <th style=@larguraColunaRev>
+                @Html.DisplayFor(modelItem => nomeColuna.IndiceRevisao)
+            </th>
+        }*@
+
+                        @foreach (var indice in listaIndicesRevisao)
+                        {
+                            <th style=@larguraColunaRev>
+                                @Html.DisplayFor(modelItem => indice)
+                            </th>
+                        }
+
+
+                        @*@for (int i = 0; i < ViewBag.ListaIndicesRevisao.Count; i++)
+                        {
+                            <th style=@larguraColunaRev>
+                                @Html.DisplayFor(modelItem => ViewBag.ListaIndicesRevisao[i].IndiceRevisao)
+                            </th>
+                        }*@
+
+
+
+
+                    </tr>
+                </table>
+            </div>
+        </th>
+    </tr>
+</table>
+

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebAppConfigLV.Models.UsuarioViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GuidUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsVerificador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsConfigurador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsGestor)
+
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuidUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sigla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsVerificador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsConfigurador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsGestor)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { guid = item.GuidUsuario }) |
+            @Html.ActionLink("Details", "Details", new { guid = item.GuidUsuario }) |
+            @Html.ActionLink("Delete", "Delete", new { guid = item.GuidUsuario })
+        </td>
+    </tr>
+}
+
+</table>
+
+

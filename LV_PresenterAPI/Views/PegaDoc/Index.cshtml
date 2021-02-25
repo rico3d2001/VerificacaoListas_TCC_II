@@ -1,0 +1,81 @@
+﻿@model LV_PresenterAPI.Models.DocViewModel
+
+
+@{
+    ViewBag.Title = "Criar";
+    Layout = "~/Views/Shared/_LayoutPlanilhaEncontrada.cshtml";
+    //var projeto = (ProjetoVM)Session["Projeto"];
+}
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            @*@Html.AntiForgeryToken()*@
+
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+
+            <div class="form-horizontal">
+                <div>
+                    @Html.HiddenFor(model => model.GuidPlanilha, new { htmlAttributes = new { @id = "guid_planilha" } })
+                    @Html.HiddenFor(model => model.NumeroDocumento)
+                    @Html.HiddenFor(model => model.SiglaDisciplina)
+                    @Html.HiddenFor(model => model.GuidDocumento)
+                    <table border="0">
+                        <tr>
+                            <th>
+                                @Html.LabelFor(model => model.Projeto, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </th>
+                            <th>
+                                @Html.LabelFor(model => model.OS, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </th>
+                            <th>
+                                @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </th>
+                            <th>
+                                @Html.LabelFor(model => model.SiglaDisciplina, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </th>
+                            <th>
+                                @Html.LabelFor(model => model.TipoDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </th>
+                            <th>
+                                @Html.LabelFor(model => model.Sequencial, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.EditorFor(model => model.Projeto, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @id = "projeto" } })
+                                @Html.ValidationMessageFor(model => model.Projeto, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.OS, new { htmlAttributes = new { @class = "form-control", @id = "os" } })
+                                @Html.ValidationMessageFor(model => model.OS, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", @id = "area" } })
+                                @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.SiglaDisciplina, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @id = "disciplina" } })
+                                @Html.ValidationMessageFor(model => model.SiglaDisciplina, "", new { @class = "text-danger" })
+
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.TipoDocumento, new { htmlAttributes = new { @class = "form-control", @id = "tipodoc" } })
+                                @Html.ValidationMessageFor(model => model.TipoDocumento, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.Sequencial, new { htmlAttributes = new { @class = "form-control", @id = "sequencial" } })
+                                @Html.ValidationMessageFor(model => model.Sequencial, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <input id="botao" type="submit" value="CARREGA DOCUMENTO" class="btn  btn-default ShowLoader" />
+
+        }
+    </div>

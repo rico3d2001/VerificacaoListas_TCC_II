@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutListaLVs.cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+
+    <h3 class="h3">FILTROS</h3>
+    <hr />
+
+    @using (Ajax.BeginForm("ListaLvs", "AdminDocument", new AjaxOptions
+    {
+        UpdateTargetId = "Tabela",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    }
+            ))
+    {
+        <div class="col-lg-3">
+            <table cellspacing="2" cellpadding="2">
+                <tr>
+                    <td>
+                        Projeto :
+                    </td>
+                    <td>
+                        @Html.Editor("projeto", new { @class = "form-control" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        OS :
+                    </td>
+                    <td>
+                        @Html.Editor("os", new { @class = "form-control" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Área :
+                    </td>
+                    <td>
+                        @Html.Editor("area", new { @class = "form-control" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Disciplina :
+                    </td>
+                    <td>
+                        @Html.Editor("disciplina", new { @class = "form-control" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Tipo de Documento :
+                    </td>
+                    <td>
+                        @Html.Editor("tipo", new { @class = "form-control" })
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Sequencial :
+                    </td>
+                    <td>
+                        @Html.Editor("sequencial", new { @class = "form-control" })
+                    </td>
+                </tr>
+
+            </table>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="APLICAR" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-lg-9">
+        <div id="Tabela" @*class="col-md-pull-2"*@ @*style="position:absolute"*@></div>
+    </div>
+</body>
+</html>

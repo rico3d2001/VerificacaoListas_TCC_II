@@ -1,0 +1,25 @@
+﻿@*@model WebAppAWListaVerificacao.Models.CabecalhoViewModel*@
+@using WebAppAWListaVerificacao.Models
+
+
+@{
+    var cabecalho = (CabecalhoViewModel)ViewBag.CabecalhoViewModel;
+
+}
+
+
+@*CABECALHO FIXO*@
+<table id="cabecalho_fixo" class="table-bordered" style="width:100%">
+    <tr>
+        <th style="text-align:center;vertical-align:central">
+            <img src="@Url.Content(cabecalho.ImagePath)" alt="Image" />
+        </th>
+        <th style="text-align:center;vertical-align:central">
+            @Html.DisplayFor(model => cabecalho.Titulo)
+        </th>
+        <th style="text-align:center;vertical-align:central">
+            SISTEMA DA QUALIDADE
+        </th>
+    </tr>
+</table>
+

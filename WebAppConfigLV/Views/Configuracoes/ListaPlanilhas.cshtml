@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LVModel.Planilha>
+
+@{
+    ViewBag.Title = "ListaPlanilhas";
+}
+
+<h2>ListaPlanilhas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Guid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Disciplina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Config)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LV)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Guid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Funcao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Disciplina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Config)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LV)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "DetalhesPlanilha", new { guid = item.Guid })   @*|
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,34 @@
+﻿
+@model WebAppAWListaVerificacao.Models.ConfirmaColunaViewModel
+@using LVModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+
+}
+
+<div id="dialog-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="col-md-3"></div>
+        <div class="modal-content col-md-6">
+
+            <div class="modal-header">
+                @*<div class="col-md-10"><h4>@ViewBag.MensagemErro</h4></div>*@
+               <div class="col-md-2"><button type="button" class="btn  btn-default" onclick="LimpaDiv()">X</button></div>
+            </div>
+            <img id="divLoading" src="~/img/tenor.gif" alt="Loading Image" height="150" title="Loading Image" class="HideLoader" />
+            <div class="modal-body">
+                <h4>Defina todos os itens da lista antes de confirmar.</h4>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        function LimpaDiv() {
+            $("#ok").empty();
+        }
+    </script>
+}
+

@@ -1,0 +1,18 @@
+﻿@model WebAppAWListaVerificacao.Models.ProjetoViewModel
+
+@using (Html.BeginForm("LocalizarOS", "Projeto", FormMethod.Post))
+{
+    SelectList dicSelect = new SelectList(new Dictionary<string, string>());
+
+    if (Session["ListaOSView"] != null)
+    {
+        dicSelect = (SelectList)Session["ListaOSView"];
+    }
+
+    <div class="form-group" style="text-align:center">
+        @Html.LabelFor(model => model.GuidOs, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("guidos", dicSelect, "Selecione a OS", new { @class = "form-control", @onchange = @"form.submit();" })
+        </div>
+    </div>
+}

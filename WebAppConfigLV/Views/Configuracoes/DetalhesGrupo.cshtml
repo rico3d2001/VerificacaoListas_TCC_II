@@ -1,0 +1,35 @@
+﻿@model LVModel.Grupo
+
+@{
+    ViewBag.Title = "DetalhesGrupo";
+}
+
+<h2>DetalhesGrupo</h2>
+
+<div>
+    <h4>Grupo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordenador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ordenador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Listas Itens", "ListaItens", new { ordenador = Model.Ordenador }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

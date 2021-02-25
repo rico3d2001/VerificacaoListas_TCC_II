@@ -1,0 +1,49 @@
+﻿
+@using EntidadesRepositoriosLeitura
+
+@using LV_PresenterAPI.Gestao_UI
+
+@model EntidadesRepositoriosLeitura.ListaVerficacaoVM
+
+@{
+    var isVerificador = (bool)Session["IsVerficador"];
+
+  
+    Layout = ((LayoutPresenter)Session["LayoutPresenter"]).Layout;
+}
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="ok" class="col-md-pull-2" style="position: absolute">
+</div>
+
+@{ Html.RenderAction("FixoDocumentoEncontrado", "Cabecalhos", new { cab = Model }); }
+
+@{ Html.RenderAction("Documento", "Cabecalhos", new { cab = Model }); }
+
+@{ Html.RenderAction("RevisoesDOCEncontrado", "Cabecalhos", new { listaVer = Model }); }
+
+
+@if (isVerificador)
+{
+
+    //if (possuiRevisoes)
+    //{
+    { Html.RenderAction("TabelaDocumento", "Tabelas", new { listaVer = Model }); }
+    //}
+    //else
+    //{
+    //    { Html.RenderAction("TabelaTemplate", "Tabelas", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+    //}
+
+}
+else
+{
+    { Html.RenderAction("TabelaDocumentoNoVerficador", "Tabelas", new { listaVer = Model }); }
+}
+
+@{ Html.RenderAction("TabelasFixas", "Tabelas"); }
+
+@{ Html.RenderAction("TabelaRegistrosVerificacoes", "Tabelas", new { listaVer = Model }); }

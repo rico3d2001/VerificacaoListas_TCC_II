@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+    bool podeConfirmar = (bool)ViewBag.PodeConfirmar;
+}
+
+<div id="dialog-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="col-md-3"></div>
+        <div class="modal-content col-md-6">
+
+            <div class="modal-header">
+                <div class="col-md-10"><h4>@ViewBag.MensagemErro</h4></div>
+                <div id="id_saida" class="col-md-2"><button type="button" class="btn  btn-default" onclick="LimpaDiv()">X</button></div>
+            </div>
+            <img id="divLoading" src="~/img/tenor.gif" alt="Loading Image" height="150" title="Loading Image" class="HideLoader" />
+            <div class="modal-body">
+
+                <div class="col-md-10"><h4>Revisão: @ViewBag.IndiceConfirmar</h4></div>
+
+                @using (Ajax.BeginForm("Confirma", new AjaxOptions
+                {
+                    UpdateTargetId = "confirmaForm",
+                    //LoadingElementId = "divLoading",
+                    OnBegin = "onAjaxBegin",
+                    OnSuccess = "AjaxFormSuccess",
+                    OnComplete = "onCompleta"
+                }))
+                {
+            <div class="form-horizontal">
+
+
+                @if (podeConfirmar)
+                {
+                    <div class="form-group">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11" textalign="center">
+                            <input id="botao" type="submit" value="CONFIRMAR" class="btn  btn-default ShowLoader" />
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+
+                }
+
+
+
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+<div id="confirmaForm"></div>
+
+@section Scripts {
+    <script>
+
+        function onAjaxBegin() {
+            $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+            $("#botao").removeClass("ShowLoader").addClass("HideLoader"); 
+            $("#id_saida").removeClass("ShowLoader").addClass("HideLoader");
+        }
+
+        function onCompleta() {
+            $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+        }
+
+         function AjaxFormSuccess(e)
+        {
+            if (e != "")
+            {
+                $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+                 window.location.href = e.env;
+            }
+            else
+            {
+                $("#divLoading").removeClass("ShowLoader").addClass("HideLoader");
+            }
+        };
+
+
+        function LimpaDiv() {
+            $("#ok").empty();
+        }
+    </script>
+}

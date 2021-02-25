@@ -1,0 +1,87 @@
+﻿@using LV_PresenterAPI.Models
+
+@{
+    var larguraColunaRev = "width:" + ViewBag.LarguraCalculada + "%;text-align:center";
+
+    var list_ColunaRevisaoViewModel = (List<ColunaRevisaoViewModel>)ViewBag.List_ColunaRevisaoViewModel;
+
+}
+
+    <div>
+        @foreach (var grupo in list_ColunaRevisaoViewModel[0].ListaGrupos)
+        {
+            @*TABELA GRUPO*@
+            <table id="tabela_grupo" class="table-bordered" style="width:100%">
+                <tr>
+                    <th style="text-align:center;vertical-align:central;width:5%">
+
+                        @Html.DisplayFor(modelItem => grupo.Indice)
+                    </th>
+                    <th style="text-align:center;vertical-align:central;width:50%;background-color:bisque">
+
+                        @Html.DisplayFor(modelItem => grupo.Nome)
+                    </th>
+                    <th style="text-align:center;vertical-align:central;width:45%">
+                        <table class="table-bordered" style="width:100%">
+                            <tr>
+                                @foreach (var registro in list_ColunaRevisaoViewModel)
+                                {
+                                    <th style="text-align:center;vertical-align:central;width:8%;height:20px">
+
+                                    </th>
+                                }
+
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+            </table>
+
+            @*TABELA REVISOES*@
+            <table id="tabela_revisoes" style="width:100%" border="1">
+
+                @foreach (var linha in grupo.ListaLinhas)
+                {
+                    <tr>
+                        <th style="text-align:center;vertical-align:central;width:5%">
+
+                            @Html.DisplayFor(modelItem => linha.Item)
+                        </th>
+
+                        <th style="text-align:center;vertical-align:central;width:50%">
+
+                            @Html.DisplayFor(modelItem => linha.Descricao)
+                        </th>
+                        <th style="text-align:center;vertical-align:central;width:45%">
+
+                            <table border="1" style="width:100%">
+                                <tr>
+                                    @for (int i = 0; i < list_ColunaRevisaoViewModel.Count; i++)
+                                    {
+
+                                        var colunaRegistro = list_ColunaRevisaoViewModel[i];
+
+                                        <th style=@larguraColunaRev>
+
+                                            @if (linha.GuidTipo != "null")
+                                            {
+
+                                                Html.Display("------");
+
+                                            }
+
+                                        </th>
+
+                                    }
+
+                                </tr>
+
+                            </table>
+                        </th>
+                    </tr>
+                }
+
+            </table>
+        }
+
+    </div>

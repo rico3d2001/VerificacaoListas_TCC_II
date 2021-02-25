@@ -1,0 +1,22 @@
+﻿
+
+@{
+    ViewBag.laynivel = ViewBag.nivel;
+    ViewBag.layguid = ViewBag.guid;
+    Layout = "~/Views/Shared/_LayoutPlanilhaEncontrada.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="ok" class="col-md-pull-2" style="position: absolute"></div>
+
+@{ Html.RenderAction("Fixo", "Cabecalhos", new { cab = ViewBag.PlanilhaViewModel }); }
+
+@{ Html.RenderAction("Identificacao", "Cabecalhos", new { cab = ViewBag.PlanilhaViewModel }); }
+
+@{ Html.RenderAction("Revisoes", "Cabecalhos", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+
+@{ Html.RenderAction("TabelaTemplate", "Tabelas", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+
+@{ Html.RenderAction("TabelasFixas", "Tabelas"); }

@@ -1,0 +1,30 @@
+﻿@model EntidadesRepositoriosLeitura.ListaVerficacaoVM
+
+@*CABECALHO IDENTIFICACAO*@
+<table id="cabecalho_identificacao" class="table-bordered" style="width:100%">
+    <tr>
+        <th style="text-align:center;vertical-align:central">
+            <div>@Html.DisplayFor(m => m.CabecalhoApp.Disciplina)</div>
+            <div>@Html.DisplayFor(m => m.CabecalhoApp.Funcao)</div>
+            @*<div>@Html.DisplayFor(model => cabecalho.PaginaDocumentoVerificado)</div>*@
+        </th>
+        <th style="text-align:center;vertical-align:central">
+            <div>Nº SNC-LAVALIN EM VERIFICAÇÃO</div>
+
+            <div>
+
+                @Html.DisplayFor(m => m.NUMERODOC)
+                
+
+
+
+
+
+            </div>
+
+
+
+       
+        </th>
+    </tr>
+</table>

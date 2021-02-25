@@ -1,0 +1,177 @@
+﻿
+@model IEnumerable<EntidadesRepositoriosLeitura.ProjetoToListDTO>
+
+@{
+    ViewBag.Title = "Projetos";
+    //Layout = "~/Views/Shared/_LayoutProjeto.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/jsTree/themes/default/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center" style="margin-top: 100px">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="~/img/Logo_SNCLavalin_©2015_COUL_RGB.png" width="200" height="106" alt="SNC-Lavalin Icon">
+                </div>
+                <div class="col-lg-9">
+                    <h1 style="margin-left: -100px; margin-top: 33px">Lista de Verificação Digital</h1>
+                </div>
+            </div>
+
+
+            <div class="dropdown">
+                <br>
+                <h4>Escolha o Projeto</h4>
+
+                <button class="btn btn-primary dropdown-toggle" style="width: 200px" type="button" data-toggle="dropdown">
+                    Projetos
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="overflow: auto; Height: 350px; margin-left: 450px">
+
+                    @foreach (var item in Model)
+                    {
+                        <li><a class="dropdown-item" href="#">@Html.ActionLink(item.NUMERO, "BuscaLV", new { nivel = 0, id = item.GUID })</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jstree")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @*@RenderSection("scripts", required: false)*@
+
+</body>
+</html>
+
+@*  <div class="container">
+        <div class="jumbotron text-center" style="margin-top: 100px">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="assets/img/Logo_SNCLavalin_©2015_COUL_RGB.png" width="200" height="106" alt="SNC-Lavalin Icon">
+                </div>
+                <div class="col-lg-9">
+                    <br><br>
+                    <h1 style="margin-left: -150px">Lista de Verificação Digital</h1>
+                </div>
+            </div>
+
+
+            <div class="dropdown">
+                <br>
+                <h5>Escolha o Projeto que Deseja Entrar</h5>
+
+                <button class="btn btn-primary dropdown-toggle" style="width: 200px" type="button" data-toggle="dropdown">
+                    Projetos
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="overflow: auto; Height: 450px;">
+                    <li><a class="dropdown-item" href="Passage.html">0807-002 - PELLET FEED DA BARRAGEM DO GELADO</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>*@
+
+@*@foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.GUID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NUMERO)
+            </td>
+            <td>
+                @Html.ActionLink(">>", "BuscaLV", new { id = item.GUID })
+            </td>
+        </tr>
+    }*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<RepositorioLeitura.Entidades.ProjetoToListDTO>
+
+    @{
+        ViewBag.Title = "Projetos";
+        Layout = "~/Views/Shared/_LayoutProjeto.cshtml";
+    }
+
+    <h2>SELECIONE O PROJETO</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.NUMERO)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.GUID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NUMERO)
+            </td>
+            <td>
+                @Html.ActionLink(">>", "BuscaLV", new { id=item.GUID  })
+            </td>
+        </tr>
+    }
+
+    </table>*@

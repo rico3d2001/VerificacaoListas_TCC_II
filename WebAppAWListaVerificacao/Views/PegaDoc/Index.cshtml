@@ -1,0 +1,180 @@
+﻿@model WebAppAWListaVerificacao.Models.DocViewModel
+@using WebAppAWListaVerificacao.Models
+
+
+@{
+    ViewBag.Title = "PegaDoc";
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+    string str = "";
+}
+
+<div id="dialog-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div class="col-md-10"><h4>Carregar documento</h4></div>
+                <div class="col-md-2"><button type="button" class="btn  btn-default" onclick="Sai()">X</button></div>
+            </div>
+            <img id="divLoading" src="~/img/tenor.gif" alt="Loading Image" height="150" title="Loading Image" class="HideLoader" />
+            <div class="modal-body">
+
+                @using (Ajax.BeginForm("Salva",new { id = "saveForm"}, new AjaxOptions
+                {
+                    UpdateTargetId = "UpdateContentDiv",
+                    OnFailure = "onChangeFailure",
+                    InsertionMode = InsertionMode.Replace,
+                    //LoadingElementId = "divLoading",
+                    OnBegin = "onAjaxBegin",
+                    OnComplete = "onAjaxComplete",
+                    OnSuccess = "AjaxFormSuccess"
+                }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <div>
+                            @Html.HiddenFor(model => model.GuidPlanilha, new { htmlAttributes = new { @id = "guid_planilha" } })
+                            @Html.HiddenFor(model => model.NumeroDocumento)
+                            @Html.HiddenFor(model => model.SiglaDisciplina)
+                            @Html.HiddenFor(model => model.GuidDocumento)
+                            <table border="0">
+                                <tr>
+                                    <th>
+                                        @Html.LabelFor(model => model.Projeto, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(model => model.OS, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(model => model.SiglaDisciplina, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(model => model.TipoDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(model => model.Sequencial, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.EditorFor(model => model.Projeto, new { htmlAttributes = new { @class = "form-control", @id = "projeto" } })
+                                        @Html.ValidationMessageFor(model => model.Projeto, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.OS, new { htmlAttributes = new { @class = "form-control", @id = "os" } })
+                                        @Html.ValidationMessageFor(model => model.OS, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", @id = "area" } })
+                                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.SiglaDisciplina, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @id = "disciplina" } })
+                                        @Html.ValidationMessageFor(model => model.SiglaDisciplina, "", new { @class = "text-danger" })
+
+                                        @*@Html.DisplayFor(model => model.SiglaDisciplina, new { @class = "form-control" })*@
+
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.TipoDocumento, new { htmlAttributes = new { @class = "form-control", @id = "tipodoc" } })
+                                        @Html.ValidationMessageFor(model => model.TipoDocumento, "", new { @class = "text-danger" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.Sequencial, new { htmlAttributes = new { @class = "form-control", @id = "sequencial" } })
+                                        @Html.ValidationMessageFor(model => model.Sequencial, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <hr />
+
+                    @*<div class="form-group">
+                            <div class="col-md-10">
+                                <input id="botao" type="submit"
+                                       onclick="this.disabled=true;this.form.submit();javascript:Validate(@Model.GuidPlanilha,@Model.Projeto,@Model.OS,@Model.Area,@Model.SiglaDisciplina,@Model.TipoDocumento,@Model.Sequencial)"
+                                       value="CARREGA DOCUMENTO" class="btn btn-default" />
+                            </div>
+                        </div>*@
+
+                    <input id="botao" type="submit" value="CARREGA DOCUMENTO" class="btn  btn-default ShowLoader" />
+
+                }
+
+                <div id="UpdateContentDiv">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+
+   
+        <script type="text/javascript">
+
+        //$(document).ready(function () {
+        //    $.validator.unobtrusive.parse('#form');
+        //});
+
+
+        function Sai() {
+            $("#ok").empty();
+        }
+
+        function onAjaxBegin() {
+            $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+            //$("#UpdateContentDiv").removeClass("ShowLoader").addClass("HideLoader");
+        }
+
+        function onAjaxComplete() {
+            $("#divLoading").removeClass("ShowLoader").addClass("HideLoader");
+            $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+            //$("#UpdateContentDiv").removeClass("HideLoader").addClass("ShowLoader");
+
+        }
+
+        function onChangeFailure()
+        {
+            $("#divLoading").removeClass("ShowLoader").addClass("HideLoader");
+            //$.validator.unobtrusive.parse($('#saveForm'));
+            //alert("Falha!")
+        }
+
+        function AjaxFormSuccess(e)
+        {
+            if (e != "")
+            {
+                //$("#ok").empty();
+                 $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+                 window.location.href = e;
+                //$.ajax({
+
+                //}).done(function () {
+
+                //    //$("#ok").empty();
+                //    window.location.href = e;
+
+                //    //"/ListaDocumento/IndexLD?guidDocumento=" + e;
+                //})
+            }
+            else
+            {
+                $("#divLoading").removeClass("ShowLoader").addClass("HideLoader");
+                $.validator.unobtrusive.parse($('#saveForm'));
+            }
+        };
+    
+
+        </script>
+   
+
+}

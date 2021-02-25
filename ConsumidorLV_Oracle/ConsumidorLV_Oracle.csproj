@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C541CB30-017F-4C12-B7D7-A2C1D1350A8A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsumidorLV_Oracle</RootNamespace>
+    <AssemblyName>ConsumidorLV_Oracle</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RabbitMQ.Client, Version=6.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.6.0.0-pre3\lib\net451\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LV_DI\bin\Debug\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LV_DI\bin\Debug\Unity.Container.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comandos\CmdAcrescimoRevisao.cs" />
+    <Compile Include="Comandos\CmdMudaIndice.cs" />
+    <Compile Include="Comandos\CmdRetomarRevisao.cs" />
+    <Compile Include="Comandos\CmdRevisaoUnitaria.cs" />
+    <Compile Include="Comandos\CmdsAlterarRevisao.cs" />
+    <Compile Include="Comandos\CmdsOraConfirmacaoRevisao.cs" />
+    <Compile Include="Comandos\CmdsListaVerficacao.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppListaVerificacao\AppListaVerificacao.csproj">
+      <Project>{7EDB0644-3CAB-4F42-AB41-8C9E520657C6}</Project>
+      <Name>AppListaVerificacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppUtils\AppUtils.csproj">
+      <Project>{BFBB20BA-CC6D-4A19-A290-7F561F13C252}</Project>
+      <Name>AppUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntidadesRepositoriosLeitura\EntidadesRepositoriosLeitura.csproj">
+      <Project>{B159864D-4ED9-4CE6-B6AA-473AF30AC461}</Project>
+      <Name>EntidadesRepositoriosLeitura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LVModel\LVModel.csproj">
+      <Project>{3B6DCE5E-D5E0-4D0C-992E-1210334256E2}</Project>
+      <Name>LVModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LV_DI\LV_DI.csproj">
+      <Project>{EB165907-86BF-4C10-8BD9-5DEF85E071FC}</Project>
+      <Name>LV_DI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositorioLeitura\RepositorioLeitura.csproj">
+      <Project>{C42A5894-FCB6-40C5-A70C-8E31AAAEC572}</Project>
+      <Name>RepositorioLeitura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositorioMongoDB\RepositorioMongoDB.csproj">
+      <Project>{8461EDFD-B219-4688-A09B-A8FEF3707A03}</Project>
+      <Name>RepositorioMongoDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

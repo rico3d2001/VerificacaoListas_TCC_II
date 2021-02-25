@@ -1,0 +1,106 @@
+﻿@model LV_PresenterAPI.Models.MudaIndiceViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+
+}
+
+<div id="dialog-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="col-md-3"></div>
+        <div class="modal-content col-md-6">
+
+            <div class="modal-header">
+                <div class="col-md-10"><h4>Modificar revisão</h4></div>
+                <div class="col-md-2"><button type="button" class="btn  btn-default" onclick="LimpaDiv()">X</button></div>
+            </div>
+            <img id="divLoading" src="~/img/tenor.gif" alt="Loading Image" height="150" title="Loading Image" class="HideLoader" />
+            <div class="modal-body">
+                @using (Ajax.BeginForm(new AjaxOptions
+                {
+
+                    UpdateTargetId = "idtarget",
+                    OnSuccess = "AjaxFormSuccess",
+                    OnBegin = "onAjaxBegin"
+
+                }))
+                {
+                    <div class="form-horizontal">
+                        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                        @Html.HiddenFor(model => model.GuidDocumento)
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </div>
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @style = "width:135px" } })
+                                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-11" textalign="center">
+                                <input type="submit" value="MUDAR" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <h4 id="id_alerta" class="HideLoader">"Preenchimento inadequado!"</h4>
+
+
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+</div>
+
+<div id="idtarget">
+
+</div>
+
+
+@section Scripts {
+    <script>
+
+
+
+
+
+        function LimpaDiv() {
+            $("#ok").empty();
+        }
+
+        function onAjaxBegin() {
+            $("#id_alerta").removeClass("ShowLoader").addClass("HideLoader");
+            $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+
+        }
+
+
+        function AjaxFormSuccess(e) {
+
+            if (e != "") {
+                $("#ok").empty();
+                window.location.href = e.env;
+
+            }
+            else {
+                $("#divLoading").removeClass("ShowLoader").addClass("HideLoader");
+                $("#id_alerta").removeClass("HideLoader").addClass("ShowLoader");
+
+            }
+        };
+
+
+
+
+
+
+    </script>
+}
+
+
+

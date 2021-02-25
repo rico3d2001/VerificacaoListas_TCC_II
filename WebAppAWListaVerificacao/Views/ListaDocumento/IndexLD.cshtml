@@ -1,0 +1,68 @@
+﻿
+
+@using WebAppAWListaVerificacao.Models
+@using LVModel
+
+@{
+    ViewBag.laynivel = ViewBag.nivel;
+    ViewBag.layguid = ViewBag.guid;
+    Layout = "~/Views/Shared/" + TempData["LayoutUsuario"] + ".cshtml"; 
+
+    var possuiRevisoes = (bool)ViewBag.PossuiRevisoes;
+    var listaRegistroConfirmacoes = (List<Confirmacao>)TempData["ListaRegistroConfirmacoesViewModel"];
+    var isVerificador = ViewBag.IsVerificador;
+}
+
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="ok" class="col-md-pull-2" style="position: absolute">
+
+    @*<img id="divLoading" src="~/img/tenor.gif" alt="Loading Image" height="150" title="Loading Image" class="HideLoader" />*@
+</div>
+
+
+
+@{ Html.RenderAction("Fixo", "Cabecalhos", new { cab = ViewBag.CabecalhoViewModel }); }
+
+
+@{ Html.RenderAction("Documento", "Cabecalhos", new { cab = ViewBag.CabecalhoViewModel }); }
+
+
+@{ Html.RenderAction("Revisoes", "Cabecalhos", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+
+
+@if (isVerificador)
+{
+
+    if (possuiRevisoes)
+    {
+        { Html.RenderAction("TabelaDocumento", "Tabelas", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+    }
+    else
+    {
+        { Html.RenderAction("TabelaTemplate", "Tabelas", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+    }
+
+}
+else
+{
+    { Html.RenderAction("TabelaDocumentoNoVerficador", "Tabelas", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+}
+
+
+
+
+
+
+@{ Html.RenderAction("TabelasFixas", "Tabelas"); }
+
+
+@{ Html.RenderAction("TabelaRegistrosVerificacoes", "Tabelas", new { listaConfirmacoes = listaRegistroConfirmacoes, guidDoc = ViewBag.GuidDoc , isListaVerificacaoDupla = ViewBag.IsListaVerificacaoDupla }); }
+
+
+
+
+

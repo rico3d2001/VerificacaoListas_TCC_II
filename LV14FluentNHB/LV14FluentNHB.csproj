@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64C743E1-0936-48FA-A0B9-38FF45D41E8E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LV14FluentNHB</RootNamespace>
+    <AssemblyName>LV14FluentNHB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.1.2\lib\net461\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=5.1.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.5.1.1\lib\net461\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.1.2\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.1.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodigoDocumentoMap.cs" />
+    <Compile Include="GrupoCodigoDocumentoMap.cs" />
+    <Compile Include="Interface\IServiceBase.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="AreaMap.cs" />
+    <Compile Include="ConfiguracaoMap.cs" />
+    <Compile Include="ConfirmacaoMap.cs" />
+    <Compile Include="DisciplinaMap.cs" />
+    <Compile Include="ListaVerificacaoMap.cs" />
+    <Compile Include="GrupoMap.cs" />
+    <Compile Include="ItemRevisaoMap.cs" />
+    <Compile Include="Log_Auditoria.cs" />
+    <Compile Include="Log_AuditoriaMap.cs" />
+    <Compile Include="MapaViews\CabecalhoDTOMap.cs" />
+    <Compile Include="OSMap.cs" />
+    <Compile Include="PlanilhaMap.cs" />
+    <Compile Include="ProjetoMap.cs" />
+    <Compile Include="NumeroDocSNCLavalinMap.cs" />
+    <Compile Include="RevisaoMap.cs" />
+    <Compile Include="ArquivoListasMap.cs" />
+    <Compile Include="Service\ConexaoFactory.cs" />
+    <Compile Include="Service\MysqlDataContext.cs" />
+    <Compile Include="Service\MySqlFactory.cs" />
+    <Compile Include="Service\OracleDataContext.cs" />
+    <Compile Include="Service\OracleFactory.cs" />
+    <Compile Include="Service\UnitOfWork.cs" />
+    <Compile Include="UsuarioMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Service\ServiceBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntidadesRepositoriosLeitura\EntidadesRepositoriosLeitura.csproj">
+      <Project>{B159864D-4ED9-4CE6-B6AA-473AF30AC461}</Project>
+      <Name>EntidadesRepositoriosLeitura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LVModel\LVModel.csproj">
+      <Project>{3b6dce5e-d5e0-4d0c-992e-1210334256e2}</Project>
+      <Name>LVModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositorioLeitura\RepositorioLeitura.csproj">
+      <Project>{C42A5894-FCB6-40C5-A70C-8E31AAAEC572}</Project>
+      <Name>RepositorioLeitura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VerificacaoListas.DTO\VerificacaoListas.DTO.csproj">
+      <Project>{ED9C71B6-1F82-437C-8C20-DD081288188E}</Project>
+      <Name>VerificacaoListas.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

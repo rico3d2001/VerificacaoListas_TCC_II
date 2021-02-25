@@ -1,0 +1,44 @@
+﻿@*@model WebAppAWListaVerificacao.Models.PlanilhaViewModel*@
+
+@using WebAppAWListaVerificacao.Models
+
+@{
+    ViewBag.laynivel = ViewBag.nivel;
+    ViewBag.layguid = ViewBag.guid;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/" + TempData["LayoutUsuario"] + ".cshtml";
+}
+
+@{
+
+//Session["planilhaViewModel"] = Model;
+//var login = (UsuarioCorrente)Session["Login"];
+//var doc = (DocumentoApp)Session["Doc"];
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="ok" class="col-md-pull-2" style="position: absolute"></div>
+
+@{ Html.RenderAction("Fixo", "Cabecalhos", new { cab = ViewBag.CabecalhoViewModel }); }
+
+
+@{ Html.RenderAction("Identificacao", "Cabecalhos", new { cab = ViewBag.CabecalhoViewModel }); }
+
+
+@{ Html.RenderAction("Revisoes", "Cabecalhos", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+
+
+@{ Html.RenderAction("TabelaTemplate", "Tabelas", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+
+
+@{ Html.RenderAction("TabelasFixas", "Tabelas"); }
+
+
+
+
+
+
+
+

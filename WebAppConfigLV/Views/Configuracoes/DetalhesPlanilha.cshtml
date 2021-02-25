@@ -1,0 +1,75 @@
+﻿@model LVModel.Planilha
+
+@{
+    ViewBag.Title = "DetalhesPlanilha";
+}
+
+<h2>DetalhesPlanilha</h2>
+
+<div>
+    <h4>Planilha</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Guid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disciplina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disciplina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Config)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Config)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Listas Grupos", "ListaGrupos", new { guid = Model.Guid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

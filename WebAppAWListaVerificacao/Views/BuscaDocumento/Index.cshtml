@@ -1,0 +1,97 @@
+﻿
+
+@model LVModel.NumeroDocSNCLavalin
+
+@{
+    ViewBag.Title = "SetSequencial";
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+    var resposta = ViewBag.resp;
+
+    //var _numeroDocumento = Session["NumeroDocumento"];
+}
+
+<div id="dialog-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div class="col-md-10"><h4>Buscar Lista</h4></div>
+                <div class="col-md-2"><button type="button" class="btn  btn-default" onclick="Sai()">X</button></div>
+            </div>
+            <img id="divLoading" src="~/img/tenor.gif" alt="Loading Image" height="150" title="Loading Image" class="HideLoader" />
+            <div class="modal-body">
+                <div style="text-align:center;display:none" id="loaderDiv">
+                    <img src="~/Content/img/progress.gif" />
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                @using (Html.BeginForm())
+                {
+                    //@Html.HiddenFor(model => model.NumeroDocumentoCorrente)
+                    //@Html.HiddenFor(model => model.GuidDocumento)
+                    //@Html.HiddenFor(model => model.ExistemRevisoesNaoConfimadas)
+                    //@Html.HiddenFor(model => model.ExistemRevisoesNesteDocumento)
+                    //@Html.HiddenFor(model => model.NumeroDocSNCLavalin)
+
+                    //@Html.HiddenFor(model => model.Documento)
+
+
+                <div id="msg ShowLoader">
+                    @if (resposta == false)
+                    {
+                    <h4> Nenhum documento encontrado</h4>
+
+
+                    }
+                    else if (resposta == true)
+                    {
+                    <h4> Documento encontrado: @Model.ToString() </h4>
+
+                    }
+                </div>
+                    <hr />
+
+                    if (resposta == true)
+                    {
+                        <input id="botao" type="submit" onclick="this.disabled=true;this.form.submit();javascript:LimpaDiv()" value="CARREGA DOCUMENTO" class="btn btn-default" />
+                    }
+                }
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+@section Scripts {
+
+
+    <script>
+            function Sai() {
+                $("#ok_projeto").empty();
+            }
+
+            //function Busca() {
+
+            //    $("#loaderDiv").show();
+            //}
+
+
+
+        </script>
+
+
+
+    <script>
+        function LimpaDiv() {
+            //$("#ok").empty();
+            $("#divLoading").removeClass("HideLoader").addClass("ShowLoader");
+            $("#botao").removeClass("ShowLoader").addClass("HideLoader");
+            $("#msg").removeClass("ShowLoader").addClass("HideLoader");
+        }
+    </script>
+}

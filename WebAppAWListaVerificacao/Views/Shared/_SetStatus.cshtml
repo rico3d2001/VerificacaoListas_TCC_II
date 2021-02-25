@@ -1,0 +1,42 @@
+﻿
+
+@using WebAppAWListaVerificacao.Models
+@using AppListaVerificacao.Interface;
+@using LVModel;
+
+
+@{
+
+    
+
+    List<string> listaStatus = new List<string> { "V", "X", "ND", "NA" };
+
+    string idLinha = ViewBag.GuidLinha;
+    string idRev = ViewBag.GuidRev;
+    string indRevisao = ViewBag.IndiceRevisao;
+
+ 
+    <table border="1" id=@idLinha>
+        <tr>
+            <td style="text-align:center;vertical-align:central;align-content:center;width:auto;margin:auto" />
+            @foreach (var strStatus in listaStatus)
+            {
+                <td style="@(ViewBag.StatusAgora != null && ViewBag.StatusAgora.Equals(strStatus) ? "background-color:darksalmon;width:auto;margin:auto" : "width:auto;margin:auto")">
+
+                    <a style="margin:2px">
+                        @Ajax.ActionLink(strStatus, "_AjxDefineStatus",
+                       new { idTipo = ViewBag.IdTipo, status = @strStatus, guidLinha = @idLinha, guidRev = @idRev, indiceRev = @indRevisao, item = ViewBag.Item},
+                       new AjaxOptions
+                            {
+                           HttpMethod = "GET",
+                           UpdateTargetId = @idLinha,
+                           InsertionMode = InsertionMode.Replace
+                       })
+                    </a>
+
+                </td>
+            }
+            <td style="text-align:center;vertical-align:central;align-content:center;width:auto;margin:auto" />
+        </tr>
+    </table>
+}

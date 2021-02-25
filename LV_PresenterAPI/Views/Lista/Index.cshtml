@@ -1,0 +1,138 @@
+﻿@using EntidadesRepositoriosLeitura
+
+
+@{
+    ViewBag.Title = "BuscaLV";
+    Layout = "~/Views/Shared/_LayoutProjeto.cshtml";
+    var projeto = (ProjetoVM)Session["Projeto"];
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+</head>
+<body>
+
+
+    @*<div id="ok_projeto" class="col-md-pull-2" style="position:absolute"></div>*@
+
+    @*<h4 class="h4"> PROJETO: @projeto.NUMERO</h4>*@
+    <h4 class="h4"> BUSCA DE LISTA DE VERIFICAÇÃO CADASTRADA</h4>
+
+    @using (Ajax.BeginForm("Index", "BuscaDocumento", new AjaxOptions
+    {
+        UpdateTargetId = "ok_projeto",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    }
+          ))
+    {
+
+
+
+        <table cellspacing="2" cellpadding="2">
+
+            <tr>
+                <td>
+                    Projeto :
+                </td>
+                <td>
+                    @*@Html.DisplayFor(model => projeto.NUMERO, new { id = "guidprojeto" })*@
+                    @Html.EditorFor(model => projeto.NUMERO, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @id = "projeto" } })
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    OS :
+                </td>
+                <td>
+                    @Html.DropDownList("guidos", new SelectList(projeto.OSs, "GUID", "Numero"), "Selecione a OS", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Área :
+                </td>
+                <td>
+                    @Html.DropDownList("guidarea", new SelectList(projeto.Areas,
+        "GUID", "Numero"), "Selecione a Área", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Disciplina :
+                </td>
+                <td>
+                    @Html.DropDownList("iddisciplina", new SelectList(projeto.Disciplinas,
+        "ID_DISCIPLINA", "SIGLA"), "Selecione a Disciplina", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Tipo de Documento :
+                </td>
+                <td>
+                    @Html.DropDownList("guidtipo", new SelectList(projeto.Tipos,
+        "GUID", "CODIGO"), "Selecione o Tipo de Documento", new { @class = "form-control" })
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Sequencial :
+                </td>
+                <td>
+                    @Html.Editor("sequencial", new { @class = "form-control" })
+                    <input type="submit" value="ABRIR" class="btn btn-default" />
+                </td>
+            </tr>
+
+            @*<tr>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="ABRIR" class="btn btn-default" />
+                        </div>
+                    </div>
+                </td>
+
+            </tr>*@
+
+
+        </table>
+
+
+
+    }
+
+    <div id="ok_projeto" class="col-md-pull-2" style="position:absolute"></div>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

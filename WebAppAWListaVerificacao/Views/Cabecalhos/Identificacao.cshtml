@@ -1,0 +1,58 @@
+﻿@*@model WebAppAWListaVerificacao.Models.PlanilhaViewModel*@
+@using WebAppAWListaVerificacao.Models
+
+
+@{
+    var cabecalho = (CabecalhoViewModel)ViewBag.CabecalhoViewModel;
+
+}
+
+
+@*CABECALHO IDENTIFICACAO*@
+<table id="cabecalho_identificacao" class="table-bordered" style="width:100%">
+    <tr>
+        <th style="text-align:center;vertical-align:central">
+            <div>@Html.DisplayFor(model => cabecalho.Disciplina)</div>
+            <div>@Html.DisplayFor(model => cabecalho.Funcao)</div>
+            <div>@Html.DisplayFor(model => cabecalho.PaginaDocumentoVerificado)</div>
+        </th>
+        <th style="text-align:center;vertical-align:central">
+            <div>Nº SNC-LAVALIN EM VERIFICAÇÃO</div>
+
+            <div>
+
+              
+                        @Html.Display("NUMERO DO DOCUMENTO")
+                  
+
+
+
+
+            </div>
+
+
+
+            @*<div>
+                    @if (Model.Nivel > 2 && Model.PlanilhaEscolhida)
+                    {
+                        if (Model.DocumentoCarregado)
+                        {
+                            if (Model.NumeroDocumento != "NUMERO DOC. VERIFICADO")
+                            {
+                                @Model.NumeroDocumento;
+
+                            }
+                            else
+                            {
+                                @Html.ActionLink("NUMERO DO DOCUMENTO", "Index", "PegaDoc")
+                            }
+                        }
+                    }
+                    else
+                    {
+                        @Html.Display("NUMERO DO DOCUMENTO");
+                    }
+                </div>*@
+        </th>
+    </tr>
+</table>

@@ -1,0 +1,23 @@
+﻿
+@using EntidadesRepositoriosLeitura
+
+@{
+    var planilha = (PlanilhaLVVM)ViewBag.PlanilhaViewModel;
+    var imagePath = (string)ViewBag.ImagePath;
+}
+
+
+@*CABECALHO FIXO*@
+<table id="cabecalho_fixo" class="table-bordered" style="width:100%">
+    <tr>
+        <th style="text-align:center;vertical-align:central;padding-top:10px;padding-bottom:10px">
+            <img src="@Url.Content(imagePath)" alt="Image" style="width:200px" />
+        </th>
+        <th style="text-align:center;vertical-align:central">
+            @Html.DisplayFor(model => planilha.CabecalhoApp.Titulo) 
+        </th>
+        <th style="text-align:center;vertical-align:central">
+            SISTEMA DA QUALIDADE
+        </th>
+    </tr>
+</table>

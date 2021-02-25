@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebAppConfigLV.Models.CheckDisciplina>
+
+@{
+    ViewBag.Title = "EditaDisciplinasUser";
+}
+
+<h2>EditaDisciplinasUser</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Check)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </th>
+        <th>
+            Inclusão/Exclusão
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Check)
+            @Html.HiddenFor(modelItem => item.GuidUsuario);
+            @Html.HiddenFor(modelItem => item.IdDisciplina);
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sigla)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "IncluiExcluiDisciplinaUsuario", new { guidUsuario = item.GuidUsuario, idDisciplina = item.IdDisciplina })
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

@@ -1,0 +1,34 @@
+﻿@using EntidadesRepositoriosLeitura
+
+@{
+    var planilha = (PlanilhaLVVM)ViewBag.PlanilhaViewModel;
+    var imagePath = (string)ViewBag.ImagePath;
+}
+
+<table id="cabecalho_identificacao" class="table-bordered" style="width:100%">
+    <tr>
+        <th style="text-align:center;vertical-align:central">
+            <div>@Html.DisplayFor(model => planilha.CabecalhoApp.Disciplina)</div>
+            <div>@Html.DisplayFor(model => planilha.CabecalhoApp.Funcao)</div>
+            @*<div>@Html.DisplayFor(model => planilha.CabecalhoApp.Titulo)</div>*@
+        </th>
+        <th style="text-align:center;vertical-align:central">
+            <div>Nº SNC-LAVALIN EM VERIFICAÇÃO</div>
+
+            <div>
+
+
+                @Html.Display("NUMERO DO DOCUMENTO")
+
+
+
+
+
+            </div>
+
+
+
+
+        </th>
+    </tr>
+</table>

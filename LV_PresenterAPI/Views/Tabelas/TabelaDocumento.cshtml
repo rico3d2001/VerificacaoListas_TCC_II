@@ -1,0 +1,146 @@
+﻿
+@using LV_PresenterAPI.Models
+@using LVModel
+@*@using LV14FluentNHB.Service
+@using LV_DI
+@using AppListaVerificacao.Interface;
+@using Unity;*@
+@using EntidadesRepositoriosLeitura;
+
+
+@{
+    var larguraColunaRev = "width:" + ViewBag.LarguraCalculada + "%;text-align:center";
+
+    var lista = (ListaVerficacaoVM)ViewBag.LV;
+
+    var imagens = (ImagemStatusViewModel)TempData["ImagemStatusViewModel"];
+
+}
+
+@*TABELA GERAL*@
+
+<div>
+    @foreach (var grupo in lista.Colunas[0].LV_Grupos)
+    {
+        @*TABELA GRUPO*@
+        <table id="tabela_grupo" class="table-bordered" style="width:100%">
+            <tr>
+                <th style="text-align:center;vertical-align:central;width:5%">
+
+                    @Html.DisplayFor(modelItem => grupo.ORDENADOR)
+                </th>
+                <th style="text-align:center;vertical-align:central;width:50%;background-color:bisque">
+
+                    @Html.DisplayFor(modelItem => grupo.NOME)
+                </th>
+                <th style="text-align:center;vertical-align:central;width:45%">
+                    <table class="table-bordered" style="width:100%">
+                        <tr>
+                            @foreach (var registro in lista.Colunas)
+                            {
+                                <th style="text-align:center;vertical-align:central;width:8%;height:20px">
+
+                                </th>
+                            }
+
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+        </table>
+
+        @*TABELA REVISOES*@
+        <table id="tabela_revisoes" style="width:100%" border="1">
+
+            @foreach (var linha in grupo.Linhas)
+            {
+                string topico = grupo.ORDENADOR.ToString() + "." + linha.ORDENADOR.ToString();
+                <tr>
+                    <th style="text-align:center;vertical-align:central;width:5%">
+
+                        @Html.DisplayFor(modelItem => topico)
+                    </th>
+
+                    <th style="text-align:center;vertical-align:central;width:50%">
+
+                        @Html.DisplayFor(modelItem => linha.DESCRICAO)
+                    </th>
+                    <th style="text-align:center;vertical-align:central;width:45%">
+
+                        <table border="1" style="width:100%">
+                            <tr>
+                                @for (int i = 0; i < lista.Colunas.Count; i++)
+                                {
+
+
+                                    var registro = lista.Colunas[i].
+                                        LV_Grupos.First(x => x.GUID == grupo.GUID).
+                                        Linhas.FirstOrDefault(x => x.GUID_ITEM == linha.GUID_ITEM);
+
+                                    <th style=@larguraColunaRev>
+
+
+
+                                        @if (registro != null && registro.GUID_REVISAO != null)
+                                        {
+                                            var listaIndiceAtual = lista.Colunas[i].INDICE_REV; 
+                                            
+                                          
+
+                                            if (registro.CONFIRMADO == 1)
+                                            {
+                                                { Html.RenderAction("_MostraImagensStatus", new { intTipoRevisao = registro.ID_ESTADO, imagensView = imagens }); }
+                                                
+                                            }
+                                            else
+                                            {
+                                                string indiceRev = lista.Colunas[i].INDICE_REV;
+                                         
+
+                                                string guidLinha = Guid.NewGuid().ToString();
+                                                
+
+
+                                                {
+                                                    Html.RenderAction("_SetStatuss",
+                                                      new
+                                                      {
+                                                          idTipo = linha.GUID_ITEM,
+                                                          status = registro.ID_ESTADO,
+                                                          guidLinha = guidLinha,
+                                                          guidGrupo = grupo.GUID,
+                                                          guidRev = registro.GUID_REVISAO,
+                                                          indiceRev = lista.Colunas[i].INDICE_REV,
+                                                          lv = lista
+                                                      });
+                                                }
+                                            }
+
+
+
+                                        }
+                                        else
+                                        {
+                                            Html.Display("------");
+                                        }
+
+
+                                    </th>
+
+                                }
+
+                            </tr>
+
+                        </table>
+                    </th>
+                </tr>
+            }
+
+        </table>
+    }
+
+</div>
+
+
+
+

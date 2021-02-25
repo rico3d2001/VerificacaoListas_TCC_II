@@ -1,0 +1,241 @@
+﻿@{
+    Layout = "~/Views/Shared/" + TempData["LayoutUsuario"] + ".cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+
+    <h3 class="h3"> BUSCA DE LISTA DE VERIFICAÇÃO</h3>
+    <hr />
+
+    @using (Ajax.BeginForm("Index", "BuscaDocumento", new AjaxOptions
+    {
+        UpdateTargetId = "ok_projeto",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    }
+            ))
+    {
+        <table cellspacing="2" cellpadding="2">
+            <tr>
+                <td>
+                    Projeto :
+                </td>
+                <td>
+                    @Html.DropDownList("guidprojeto", (SelectList)ViewBag.ListaProjetos, "Selecione o Projeto", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    OS :
+                </td>
+                <td>
+                    @Html.DropDownList("guidos", new SelectList(string.Empty,
+        "GUID", "Numero"), "Selecione a OS", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Área :
+                </td>
+                <td>
+                    @Html.DropDownList("guidarea", new SelectList(string.Empty,
+        "GUID", "Numero"), "Selecione a Área", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Disciplina :
+                </td>
+                <td>
+                    @Html.DropDownList("iddisciplina", new SelectList(string.Empty,
+        "ID", "Sigla"), "Selecione a Disciplina", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Tipo de Documento :
+                </td>
+                <td>
+                    @Html.DropDownList("guidtipo", new SelectList(string.Empty,
+        "GUID", "CODIGO"), "Selecione o Tipo de Documento", new { @class = "form-control" })
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Sequencial :
+                </td>
+                <td>
+                    @Html.Editor("sequencial", new { @class = "form-control" })
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ABRIR" class="btn btn-default" />
+            </div>
+        </div>
+    }
+
+    <div id="ok_projeto" class="col-md-pull-2" style="position:absolute"></div>
+
+    @section scripts{
+
+        @*Script lista de OS*@
+        <script type="text/javascript">
+
+             $(document).ready(function () {
+
+                 $("#guidprojeto").change(function () {
+
+                     $("#guidos").empty();
+
+                   $.ajax({
+
+                type: 'POST',
+
+                url: '@Url.Action("GetOSs", "Projeto")',
+                       dataType: 'json',
+                       data: { id: $("#guidprojeto").val() },
+                 success: function (subcategories) {
+
+                     $.each(subcategories, function (i, subcategory) {
+
+                         $("#guidos").append('<option value="'
+                             + subcategory.Text + '">' +
+                    subcategory.Text + '</option>');
+                           });
+                      },
+              error: function (ex) {
+            alert('Falha ao buscar Ordens de Serviço : ' + ex);
+                      }
+              });
+                    return false;
+                 })
+        });
+        </script>
+
+        @*Script Lista de Seguenciais*@
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sequencial")
+            }
+        </script>
+
+        @*Script lista de Áreas*@
+        <script type="text/javascript">
+
+             $(document).ready(function () {
+
+                 $("#guidprojeto").change(function () {
+
+                     $("#guidarea").empty();
+
+                   $.ajax({
+
+                type: 'POST',
+
+                url: '@Url.Action("GetAreas", "Projeto")',
+                  dataType: 'json',
+                       data: { id: $("#guidprojeto").val() },
+                 success: function (subcategories) {
+
+                     $.each(subcategories, function (i, subcategory) {
+
+                         $("#guidarea").append('<option value="'
+                    + subcategory.Text + '">' +
+                    subcategory.Text + '</option>');
+                           });
+                      },
+              error: function (ex) {
+            alert('Falha ao buscar Áreas : ' + ex);
+                      }
+              });
+                    return false;
+              })
+        });
+        </script>
+
+        @*Script lista de Disciplinas*@
+        <script type="text/javascript">
+
+             $(document).ready(function () {
+
+                 $("#guidprojeto").change(function () {
+
+                     $("#iddisciplina").empty();
+
+                   $.ajax({
+
+                type: 'POST',
+
+                url: '@Url.Action("GetDisciplinas", "Projeto")',
+                  dataType: 'json',
+                       data: { id: $("#guidprojeto").val() },
+                 success: function (subcategories) {
+
+                     $.each(subcategories, function (i, subcategory) {
+
+                         $("#iddisciplina").append('<option value="'
+                    + subcategory.Text + '">' +
+                    subcategory.Text + '</option>');
+                           });
+                      },
+              error: function (ex) {
+            alert('Falha ao buscar Áreas : ' + ex);
+                      }
+              });
+                    return false;
+              })
+        });
+        </script>
+
+        @*Script lista de Tipos de Documento*@
+        <script type="text/javascript">
+
+             $(document).ready(function () {
+
+                 $("#guidprojeto").change(function () {
+
+                     $("#guidtipo").empty();
+
+                   $.ajax({
+
+                type: 'POST',
+
+                url: '@Url.Action("GetTiposDocumentos", "Projeto")',
+                  dataType: 'json',
+                       data: { id: $("#guidprojeto").val() },
+                 success: function (subcategories) {
+
+                     $.each(subcategories, function (i, subcategory) {
+
+                         $("#guidtipo").append('<option value="'
+                    + subcategory.Text + '">' +
+                    subcategory.Text + '</option>');
+                           });
+                      },
+              error: function (ex) {
+            alert('Falha ao buscar Áreas : ' + ex);
+                      }
+              });
+                    return false;
+              })
+        });
+        </script>
+    }
+</body>
+</html>

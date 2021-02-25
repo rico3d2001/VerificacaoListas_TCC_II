@@ -1,0 +1,50 @@
+﻿
+
+@using WebAppAWListaVerificacao.Models
+@using LVModel
+
+@{
+    ViewBag.laynivel = ViewBag.nivel;
+    ViewBag.layguid = ViewBag.guid;
+    Layout = "~/Views/Shared/" + TempData["LayoutUsuario"] + ".cshtml";
+    var possuiRevisoes = (bool)ViewBag.PossuiRevisoes;
+    var listaRegistroConfirmacoes = (List<ColunaRevisao>)TempData["ListaRegistroConfirmacoesViewModel"];
+}
+
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="ok" class="col-md-pull-2" style="position: absolute"></div>
+
+@{ Html.RenderAction("Fixo", "Cabecalhos", new { cab = ViewBag.CabecalhoViewModel }); }
+
+
+@{ Html.RenderAction("Documento", "Cabecalhos", new { cab = ViewBag.CabecalhoViewModel }); }
+
+
+@{ Html.RenderAction("Revisoes", "Cabecalhos", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+
+
+
+@{ Html.RenderAction("TabelaDocumentoNoVerficador", "Tabelas", new { listaColunas = ViewBag.List_ColunaRevisaoViewModel }); }
+
+
+
+
+
+
+@{ Html.RenderAction("TabelasFixas", "Tabelas"); }
+
+
+@{ Html.RenderAction("TabelaRegistrosVerificacoes", "Tabelas", new { listaConfirmacoes = listaRegistroConfirmacoes }); }  listaRegistroConfirmacoes
+
+
+
+
+
+
+
+
+

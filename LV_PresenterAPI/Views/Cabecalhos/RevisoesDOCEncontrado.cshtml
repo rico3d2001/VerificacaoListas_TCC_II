@@ -1,0 +1,34 @@
+﻿@*@model IEnumerable<LV_PresenterAPI.Models.ColunaRevisaoViewModel>*@
+
+@{
+    var larguraColunaRev = "width:" + ViewBag.LarguraCalculada + "%;text-align:center";
+
+    var listaIndicesRevisao = (List<string>)ViewBag.ListaIndicesRevisao;
+
+
+    <table id="cabecalho_revisoes" class="table-bordered" style="width:100%">
+        <tr>
+            <th style="text-align:center;vertical-align:central;width:5%">
+                ITEM
+            </th>
+            <th style="text-align:center;vertical-align:central;width:50%">
+                VERIFICAÇÕES
+            </th>
+            <th style="text-align:center;vertical-align:central;width:45%">
+                <div>REVISÕES</div>
+                <div>
+                    <table border="1" style="width:100%">
+                        <tr>
+                            @foreach (var indice in listaIndicesRevisao)
+                            {
+                                <th style=@larguraColunaRev>
+                                    @Html.DisplayFor(modelItem => indice)
+                                </th>
+                            }
+                        </tr>
+                    </table>
+                </div>
+            </th>
+        </tr>
+    </table>
+}
