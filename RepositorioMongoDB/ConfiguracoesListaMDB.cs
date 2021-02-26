@@ -19,7 +19,9 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient("mongodb://localhost");
+                //mongodb://localhost
+                //IMongoClient client = new MongoClient("mongodb://localhost");
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ConfiguracaoNavDTO> colNews = database.GetCollection<ConfiguracaoNavDTO>("ConfiguracaoNavDTO");
                 lista = colNews.AsQueryable<ConfiguracaoNavDTO>().ToList();
@@ -40,7 +42,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient("mongodb://localhost");
+                //IMongoClient client = new MongoClient("mongodb://localhost");
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ConfiguracaoNavDTO> colNews = database.GetCollection<ConfiguracaoNavDTO>("ConfiguracaoNavDTO");
                 colNews.InsertOne(configuracaoNavMDB);

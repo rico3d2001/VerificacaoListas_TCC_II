@@ -10,17 +10,18 @@ namespace RepositorioMongoDB
 {
     public class LV_NoSQL
     {
-        private readonly string _servidorMDB;
+        //private readonly string _servidorMDB;
 
         public LV_NoSQL()
         {
-            _servidorMDB = "mongodb://localhost";
+            //_servidorMDB = $"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority";
             //_servidorMDB = "mongodb://sli3117";
         }
 
         public List<ConfiguracaoNavDTO> PegaConfiguracaoNavDTO()
         {
-            IMongoClient client = new MongoClient("mongodb://localhost");
+            //IMongoClient client = new MongoClient("mongodb://localhost");
+            IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
             IMongoDatabase database = client.GetDatabase("lv_template");
             IMongoCollection<ConfiguracaoNavDTO> col =
                 database.GetCollection<ConfiguracaoNavDTO>("ConfiguracaoNavDTO");
@@ -30,7 +31,8 @@ namespace RepositorioMongoDB
 
         public List<ProjetoToListDTO> PegaProjetoToListDTO()
         {
-            IMongoClient client = new MongoClient("mongodb://localhost");
+            // IMongoClient client = new MongoClient("mongodb://localhost");
+            IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
             IMongoDatabase database = client.GetDatabase("lv");
             IMongoCollection<ProjetoToListDTO> col =
                 database.GetCollection<ProjetoToListDTO>("ProjetoToListDTO");
@@ -40,7 +42,8 @@ namespace RepositorioMongoDB
 
         public List<ArquivoNavDTO> PegaArquivoNavDTO(string guidConfiguracao)
         {
-            IMongoClient client = new MongoClient("mongodb://localhost");
+            //IMongoClient client = new MongoClient("mongodb://localhost");
+            IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
             IMongoDatabase database = client.GetDatabase("lv_template");
             IMongoCollection<ArquivoNavDTO> colNews =
                 database.GetCollection<ArquivoNavDTO>("ArquivoNavDTO");
@@ -53,7 +56,8 @@ namespace RepositorioMongoDB
 
         public List<PlanilhaNavDTO> PegaPlanilhaNavDTO(string guidConfiguracao)
         {
-            IMongoClient client = new MongoClient("mongodb://localhost");
+            //IMongoClient client = new MongoClient("mongodb://localhost");
+            IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
             IMongoDatabase database = client.GetDatabase("lv_template");
             IMongoCollection<PlanilhaNavDTO> colNews =
                 database.GetCollection<PlanilhaNavDTO>("PlanilhaNavDTO");
@@ -70,7 +74,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient(_servidorMDB);
+                //IMongoClient client = new MongoClient(_servidorMDB);
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colNews = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
                 colNews.InsertOne(listaVerficacaoVM);
@@ -93,7 +98,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient("mongodb://localhost");
+                //IMongoClient client = new MongoClient("mongodb://localhost");
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colNews = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 
@@ -116,7 +122,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient("mongodb://localhost");
+                //IMongoClient client = new MongoClient("mongodb://localhost");
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colNews = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 
@@ -154,7 +161,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient(_servidorMDB);
+                //IMongoClient client = new MongoClient(_servidorMDB);
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colecao = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 
@@ -239,7 +247,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient(_servidorMDB);
+                //IMongoClient client = new MongoClient(_servidorMDB);
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colecao = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 
@@ -276,7 +285,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient(_servidorMDB);
+                //IMongoClient client = new MongoClient(_servidorMDB);
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colecao = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 
@@ -327,7 +337,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient(_servidorMDB);
+                //IMongoClient client = new MongoClient(_servidorMDB);
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colecao = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 
@@ -665,7 +676,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient(_servidorMDB);
+                //IMongoClient client = new MongoClient(_servidorMDB);
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colecao = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 
@@ -715,7 +727,8 @@ namespace RepositorioMongoDB
 
             try
             {
-                IMongoClient client = new MongoClient(_servidorMDB);
+                //IMongoClient client = new MongoClient(_servidorMDB);
+                IMongoClient client = new MongoClient($"mongodb+srv://rico3d:umsamija45@cluster0.4qsho.mongodb.net/PQBrass?retryWrites=true&w=majority");
                 IMongoDatabase database = client.GetDatabase("lv");
                 IMongoCollection<ListaVerficacaoVM> colecao = database.GetCollection<ListaVerficacaoVM>("ListaVerficacaoVM");
 

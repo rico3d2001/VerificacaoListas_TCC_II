@@ -19,7 +19,7 @@ namespace RepositorioMySQL
             {
                 if (_mySqlConnection == null)
                 {
-                    string conectionString = "Server=localhost;Database=listaverificacao;Uid=root;Pwd=umsa45;";
+                    string conectionString = "Server=localhost;Database=listaverificacao;Uid=rico3d;Pwd=umsa45;";
                     _mySqlConnection = new MySqlConnection(conectionString);
                     _mySqlConnection.Open();
                 }
