@@ -14,6 +14,7 @@ namespace RepositorioMongoDB
      
         public List<ConfiguracaoNavDTO> Buscar()
         {
+
             List<ConfiguracaoNavDTO> lista = new List<ConfiguracaoNavDTO>();
 
             try
