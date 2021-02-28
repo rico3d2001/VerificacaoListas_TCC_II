@@ -12,6 +12,17 @@ ANEXOS AO ARTIGO:
 1 - Anexo ao CASO DE USO GERAL PARA OS REQUISISTOS DE SOFTWARE
     Tabelas referentes ao digrama exibido na Figura 3 - Página 8 
 
-![image](https://user-images.githubusercontent.com/39442747/109421704-2a43e200-79b7-11eb-9edc-3a7c7b570a77.png)
+![image](https://user-images.githubusercontent.com/39442747/109421855-d8e82280-79b7-11eb-980a-2e9826532d33.png)
+
+![image](https://user-images.githubusercontent.com/39442747/109421873-ed2c1f80-79b7-11eb-8e4a-50100165f561.png)
+
+![image](https://user-images.githubusercontent.com/39442747/109421917-164cb000-79b8-11eb-9144-ba2a24e77483.png)
+
+![image](https://user-images.githubusercontent.com/39442747/109421927-28c6e980-79b8-11eb-9365-55f58e57671f.png)
+
+![image](https://user-images.githubusercontent.com/39442747/109421943-3b412300-79b8-11eb-8d14-e5256a762ef2.png)
+
+![image](https://user-images.githubusercontent.com/39442747/109421956-48f6a880-79b8-11eb-912b-395e539426c1.png)
+
 
 
