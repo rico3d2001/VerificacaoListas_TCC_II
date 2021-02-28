@@ -6,7 +6,7 @@ RA: 1537086-5
 
 Este GIF exibe o momento de mudança de status de tópicos de verficação:
 
-![image](https://user-images.githubusercontent.com/39442747/109432181-cafec580-79e8-11eb-91b3-59a443f4ec9e.png)
+https://github.com/rico3d2001/VerificacaoListas_TCC_II/blob/master/WebApiLV/Gif/ezgif.com-gif-maker.gif
 
 
 Opoção no YouTube: https://youtu.be/GRzgQZno6ug
