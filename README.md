@@ -25,6 +25,7 @@ ANEXOS AO ARTIGO:
 ![image](https://user-images.githubusercontent.com/39442747/109421956-48f6a880-79b8-11eb-912b-395e539426c1.png)
 
 2 - DICIONÁRIO DE LINGUAGEM UBÍQUA USADO NA NOMENCALTURA DE COMPONENTES DO SISTEMA
+
 Segue listagem dos tópicos componentes deste dicionário:
 
 •	Projeto: Fluxo contratado pelo cliente para de produção de documentos cujo prazo que termina quando todos os documentos previstos na lista de documentos tenham sido considerados entregues, ou seja, não possam sofrer mais revisões. 
