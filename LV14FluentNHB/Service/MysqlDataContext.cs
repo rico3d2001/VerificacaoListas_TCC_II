@@ -16,7 +16,7 @@ namespace LV14FluentNHB.Service
 
 
         private const string HOST = "localhost";
-        private const string USER = "root";
+        private const string USER = "rico3d";
         private const string PASSWORD = "umsa45";
         private const string DB = "listaverificacao";
 
