@@ -11,10 +11,6 @@ Este GIF exibe o momento de mudança de status de tópicos de verficação:
 
 
 
-Opoção no YouTube: https://youtu.be/GRzgQZno6ug
-
-
-
 
 Link para criação de banco de teste MySQL local https://1drv.ms/u/s!Arb90_FEbJwiiu0pRN8pwURih92tEg?e=H7YLJe
 com connection string : "Server=localhost;Database=listaverificacao;Uid=rico3d;Pwd=umsa45;"
