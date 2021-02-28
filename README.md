@@ -6,8 +6,9 @@ RA: 1537086-5
 
 Este GIF exibe o momento de mudança de status de tópicos de verficação:
 
+![image](https://user-images.githubusercontent.com/39442747/109432181-cafec580-79e8-11eb-91b3-59a443f4ec9e.png)
 
-![image](https://user-images.githubusercontent.com/39442747/109431238-398d5480-79e4-11eb-998e-a7a2ec869f87.png)
+
 Opoção no YouTube: https://youtu.be/GRzgQZno6ug
 
 
