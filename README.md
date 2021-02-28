@@ -24,5 +24,29 @@ ANEXOS AO ARTIGO:
 
 ![image](https://user-images.githubusercontent.com/39442747/109421956-48f6a880-79b8-11eb-912b-395e539426c1.png)
 
+2 - DICIONÁRIO DE LINGUAGEM UBÍQUA USADO NA NOMENCALTURA DE COMPONENTES DO SISTEMA
+Segue listagem dos tópicos componentes deste dicionário:
+
+•	Projeto: Fluxo contratado pelo cliente para de produção de documentos cujo prazo que termina quando todos os documentos previstos na lista de documentos tenham sido considerados entregues, ou seja, não possam sofrer mais revisões. 
+•	EAP: A estrutura analítica do projeto de forma hierarquizada e que permite compreender o fluxo de atividades do projeto.
+•	OS: Identificador da ordem de serviço, feita para os executores do projeto. Permite localizar o documento dentro da EAP, fazendo parte de sua identificação.
+•	Área: Identificador de uma etapa prevista na EAP. Permite localizar o documento, fazendo parte de sua identificação.
+•	Disciplina: Campo de especialização profissional responsável pela produção e verificação de um documento.
+•	Tipo de documento: Classificação de documentos pelo foco de atividades a que se referem e pelo grau de detalhamento de informações que contém dentro da disciplina a que pertencem.
+•	Checklist: Lista de tópicos que descreve os itens a serem verificados. 
+•	Coluna: Agrupamento típico de check-list’s que podem ser reusados em tabelas.
+•	Tabela: Agrupamento típico de colunas identificado de forma independente e em acordo com o tipo de documento que será verificado.
+•	Tópico:  Item previsto a ser verificado identificado por sua descrição.
+•	LD: Abreviatura corrente usada para a lista de previsão de documentos a serem executados, revisados e entregues ao cliente.  
+•	Identidade do documento: Identificação do documento através do número padronizado pelo fornecedor e pelo cliente.
+•	Status: Tipo de indicador de verificação que estabelece se um tópico previsto a ser verificado está em conformidade ou não, disponível ou indisponível para verificação. 
+•	Item de Verificação: É a associação entre um tópico de verificação e um status, que determina uma conferência estabelecida.
+•	Revisão: Conjunto de itens de verificação associados a um documento cuja conformidade permite sua emissão. 
+•	LV: Abreviatura corrente usada para lista de revisões de um documento.
+•	Cópia de Verificação: Cópia do documento usada para identificar erros e ações corretivas. A cada revisão está associada uma cópia de verificação com marcações e observações que refletem os status de seus itens de verificação.
+
+
+
+
 
 
