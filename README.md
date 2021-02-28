@@ -4,6 +4,11 @@ Este projeto é para aprovação no TCCII da Unicesumar
 Aluno Ricardo Ronaldo Pinto
 RA: 1537086-5
 
+Este GIF exibe o momento de mudança de status de tópicos de verficação:
+
+![image](https://user-images.githubusercontent.com/39442747/109430963-ae5f8f00-79e2-11eb-930f-6f7481f1860d.png)
+
+
 Link para criação de banco de teste MySQL local https://1drv.ms/u/s!Arb90_FEbJwiiu0pRN8pwURih92tEg?e=H7YLJe
 com connection string : "Server=localhost;Database=listaverificacao;Uid=rico3d;Pwd=umsa45;"
 
