@@ -6,7 +6,9 @@ RA: 1537086-5
 
 Este GIF exibe o momento de mudança de status de tópicos de verficação:
 
-https://github.com/rico3d2001/VerificacaoListas_TCC_II/blob/master/WebApiLV/Gif/ezgif.com-gif-maker.gif
+![Farmers Market Finder Demo](https://github.com/rico3d2001/VerificacaoListas_TCC_II/blob/master/WebApiLV/Gif/ezgif.com-gif-maker.gif)
+
+
 
 
 Opoção no YouTube: https://youtu.be/GRzgQZno6ug
