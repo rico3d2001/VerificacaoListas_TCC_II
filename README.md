@@ -6,7 +6,8 @@ RA: 1537086-5
 
 Este GIF exibe o momento de mudança de status de tópicos de verficação:
 
-![image](https://user-images.githubusercontent.com/39442747/109430963-ae5f8f00-79e2-11eb-930f-6f7481f1860d.png)
+![image](https://user-images.githubusercontent.com/39442747/109430998-e1098780-79e2-11eb-854b-849913b9aca5.png)
+
 
 
 Link para criação de banco de teste MySQL local https://1drv.ms/u/s!Arb90_FEbJwiiu0pRN8pwURih92tEg?e=H7YLJe
