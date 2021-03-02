@@ -4,6 +4,11 @@ Este projeto é para aprovação no TCCII da Unicesumar
 Aluno Ricardo Ronaldo Pinto
 RA: 1537086-5
 
+A solução contém dois projetos principais para sem utilizados:
+A aplicação de back-end está no projeto "WebApiLV"
+A aplicação de fornt-end está no projeto  "LV_PresenterAPI"
+É preciso rodar respectivamente as duas aplicações para que funcione.
+
 Este GIF exibe o momento de mudança de status de tópicos de verficação:
 
 ![Farmers Market Finder Demo](https://github.com/rico3d2001/VerificacaoListas_TCC_II/blob/master/WebApiLV/Gif/ezgif.com-gif-maker.gif)
