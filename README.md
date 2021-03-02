@@ -5,8 +5,11 @@ Aluno Ricardo Ronaldo Pinto
 RA: 1537086-5
 
 A solução contém dois projetos principais para sem utilizados:
+
 A aplicação de back-end está no projeto "WebApiLV"
+
 A aplicação de fornt-end está no projeto  "LV_PresenterAPI"
+
 É preciso rodar respectivamente as duas aplicações para que funcione.
 
 Este GIF exibe o momento de mudança de status de tópicos de verficação:
